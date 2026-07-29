@@ -11,8 +11,8 @@ public function __construct($name, $price) {
     $this->price = $price;
 }
 
-public function ApplyDiscount() {
-    $newprice = $this->price - ($this->price * 0.25);
+public function ApplyDiscount($discount = 0) {
+    $newprice = $this->price - ($this->price * $discount);
     $this->price = $newprice;
 }
 
@@ -21,9 +21,10 @@ public function GetGameinfo() {
 }
 }
 $game1 = new game("Minecraft", 29.9);
-$game1->ApplyDiscount();
+$game1->ApplyDiscount(0.25);
 $game1->GetGameinfo();
 
 $game2 = new game("Mario", 79.99);
+$game2->ApplyDiscount();
 $game2->GetGameinfo();
 
